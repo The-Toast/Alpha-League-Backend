@@ -16,4 +16,5 @@ services:
 
 networks:
   ingress:
-    driver: bridge # 기본 브릿지 네트워크
+    driver: bridge  # 기본 브릿지 네트워크
+    name: ingress    # 네트워크 이름을 'ingress'로 설정
