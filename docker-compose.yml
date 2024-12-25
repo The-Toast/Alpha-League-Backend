@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "5173" # 컨테이너 내부에서 접근 가능한 포트
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - .:/app # 소스 코드 변경 시 컨테이너 내부 동기화
+    networks:
+      - ingress # ingress 네트워크 연결
+
+networks:
+  ingress:
+    driver: bridge # 기본 브릿지 네트워크
